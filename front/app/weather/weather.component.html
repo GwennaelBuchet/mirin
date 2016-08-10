@@ -1,6 +1,6 @@
 <div>
     <i class="owf owf-800 owf-3x owf-pull-left owf-border"></i>
     <strong>Shuzenji</strong><br>
-    Temp {{weather.temperature}}°C Clear ({{weather.details}})<br>
-    Min 22°C Max 26°C
+    Temp {{weather.temperature.temp | number:'.0-2'}}°C Clear ({{weather.detailed_status}})<br>
+    Min {{weather.temperature.temp_min | number:'.0-2'}}°C Max {{weather.temperature.temp_max | number:'.0-2'}}°C
 </div>
