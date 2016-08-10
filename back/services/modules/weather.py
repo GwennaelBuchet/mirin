@@ -15,11 +15,6 @@ def get(request, city='Lille', country_code=''):
     observation = __owm.weather_at_place(__req)
     w = observation.get_weather()
 
-    wind = w.get_wind()  # {'speed': 4.6, 'deg': 330}
-    clouds = w.get_clouds()
-    humidity = w.get_humidity()  # 87
-    temperature = w.get_temperature('celsius')
-
     return HttpResponse(w.to_JSON())
 
 """def get_forecast(self, city='Lille', country='', nb_days=1):
