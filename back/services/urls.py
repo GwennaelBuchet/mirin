@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from services.modules import weather
+from .modules import weather
 
 urlpatterns = [
     url(r'^admin/$', admin.site.urls),
