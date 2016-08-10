@@ -1,0 +1,13 @@
+html {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 2em;
+}
+
+.center {
+    text-align: center;
+}
