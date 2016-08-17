@@ -5,12 +5,14 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import "rxjs/add/operator/toPromise";
+import {PromiseObservable} from "rxjs/observable/PromiseObservable";
 
 
 @Injectable()
 export class WeatherService {
 
 	private weatherUrl = 'http://localhost:8090/weather';
+	private Promise;
 
 	constructor(private http: Http) {
 	}
@@ -24,7 +26,7 @@ export class WeatherService {
 
 	private handleError(error: any) {
 		console.error('An error occurred', error);
-		return Promise.reject(error.message || error);
+		return this.Promise.reject(error.message || error);
 	}
 }
 

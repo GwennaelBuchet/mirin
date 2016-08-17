@@ -62,6 +62,7 @@ export class WeatherComponent implements OnInit {
     }
 
     getCurrent() {
+        //noinspection TypeScriptUnresolvedFunction
         this.weatherService.getCurrent().then(w => {
             this.weather = w;
             this.desc = this.weather.weather[0].description;
@@ -73,7 +74,7 @@ export class WeatherComponent implements OnInit {
             this.sunrise = hours + 'h' + minutes.substr(-2);
 
             date = new Date(this.weather.sys.sunset * 1000);
-            hours =  date.getHours();
+            hours =  "" + date.getHours();
             minutes = "0" + date.getMinutes();
             this.sunset = hours + 'h' + minutes.substr(-2);
         });
