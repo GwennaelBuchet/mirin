@@ -10,7 +10,7 @@ import "rxjs/add/operator/toPromise";
 @Injectable()
 export class WeatherService {
 
-	private weatherUrl = 'http://0.0.0.0:8090/weather/';
+	private weatherUrl = 'http://localhost:8090/weather';
 
 	constructor(private http: Http) {
 	}
@@ -19,7 +19,7 @@ export class WeatherService {
 		return this.http.get(this.weatherUrl)
 		           .toPromise()
 		           .then(response => response.json())
-		           .catch(this.handleError);
+		           //.catch(this.handleError);
 	}
 
 	private handleError(error: any) {

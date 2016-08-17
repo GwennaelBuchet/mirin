@@ -1,6 +1,21 @@
-<div>
-    <i class="owf owf-800 owf-3x owf-pull-left owf-border"></i>
-    <strong>Shuzenji</strong><br>
-    Temp {{weather.temperature.temp | number:'.0-2'}}°C Clear ({{weather.detailed_status}})<br>
-    Min {{weather.temperature.temp_min | number:'.0-2'}}°C Max {{weather.temperature.temp_max | number:'.0-2'}}°C
+<div class="weather">
+    <div class="weather-header">
+        <span class="med">{{ weather.name }}</span><br/>
+    </div>
+
+    <div class="weather-detail">
+        <span class="med"> {{ weather.main.temp | number:'.0-2' }}°C</span> <span>({{ desc }})</span><br/>
+        <span>< {{ weather.main.temp_min | number:'.0-2' }}°C</span> <span> {{ weather.main.temp_max | number:'.0-2' }}°C ></span>
+
+        <span>
+            <i class="wi wi-sunrise med"></i><span class="sma">{{ sunrise }}</span>
+        </span>
+        <span>
+            <i class="wi wi-sunset med"></i><span class="sma">{{ sunset }}</span>
+        </span>
+    </div>
+
+    <aside class="weather-icon">
+        <i class="wi wi-owm-{{ icon }} big"></i>
+    </aside>
 </div>

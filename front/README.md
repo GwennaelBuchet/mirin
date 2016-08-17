@@ -13,4 +13,7 @@ npm install
 npm start
 ```
 
+## Thanks & Disclaimer
+Weather icons from the great package from Erik Flowers : https://erikflowers.github.io/weather-icons/
+
 Be careful : this is not a production ready tool yet.
