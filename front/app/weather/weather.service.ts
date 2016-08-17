@@ -11,7 +11,7 @@ import {PromiseObservable} from "rxjs/observable/PromiseObservable";
 @Injectable()
 export class WeatherService {
 
-	private weatherUrl = 'http://localhost:8090/weather';
+	private weatherUrl = 'http://localhost:8090/api/v1/weather';
 	private Promise;
 
 	constructor(private http: Http) {

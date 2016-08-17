@@ -15,7 +15,7 @@ func main() {
 	})
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/weather", weather.HereHandler)
+	mux.HandleFunc("/api/v1/weather", weather.HereHandler)
 
 	handler := c.Handler(mux)
 	http.ListenAndServe(":8090", handler)
