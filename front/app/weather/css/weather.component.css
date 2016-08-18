@@ -1,3 +1,228 @@
+
+strong {
+    font-weight: bold;
+}
+
+.widgetBox {
+    background-color: #000;
+    padding: 10px;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    color: #FFF;
+    font-size: 12px;
+    line-height: 13px;
+    position: relative;
+    border: 1px solid #bcbcbc;
+}
+
+.widgetBox .text {
+    position: relative;
+    z-index: 9;
+}
+
+.widgetContent {
+    position: absolute;
+    z-index: 9;
+}
+
+.widgetBoxGrand .temperatures {
+    font-size: 44px;
+    line-height: 40px;
+    letter-spacing: -0.1em;
+    font-weight: normal;
+}
+
+.widgetBoxGrand .day {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 62px;
+    text-align: right;
+}
+
+.widgetBoxGrand .day1, .widgetBoxGrand .day2 {
+    position: relative;
+    float: left;
+    width: 104px;
+    height: 184px;
+    padding: 8px;
+    text-align: left;
+}
+
+.widgetBoxGrand .description {
+    font-size: 16px;
+    line-height: 15px;
+    font-weight: bold;
+    margin: 0 0 4px;
+}
+
+.widgetBoxGrand .pictoSize1 {
+    top: 28px;
+    left: 20px;
+}
+
+.widgetBoxGrand .pictoSize3 {
+    top: 36px;
+    left: 72px;
+}
+
+.pictoSize1 div {
+    width: 80px;
+    height: 52px;
+}
+
+.pictoSize3 {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+
+/*.pictoSize3 .pict3 {
+    background: url("http://widget.meteocity.com/templates/images/icons4/size3/picto-3.png") no-repeat 0 0;
+}*/
+
+.pictoSize3 div {
+    width: 160px;
+    height: 90px;
+    text-align: center;
+}
+
+.widgetBoxGrandTwodays {
+    width: 360px;
+    height: 200px;
+}
+
+.widgetBoxGrandTwodays .overlay {
+    position: absolute;
+    z-index: 2;
+    background: transparent url("app/weather/img/grand-2days-overlay.png") no-repeat 0 0;
+    width: 360px;
+    height: 200px;
+}
+
+.widgetBoxGrandTwodays .day1 {
+    float: left;
+    width: 224px;
+}
+
+.widgetBoxGrandTwodays .day1 .temperatures {
+    font-size: 60px;
+    line-height: 50px;
+}
+
+.widgetBoxGrandTwodays .day1 .day {
+    margin: 0 0 40px;
+}
+
+.big {
+    font-size: 9em;
+}
+
+.med {
+    font-size: 2em;
+    margin: 10px;
+}
+
+.sma {
+    font-size: 1em;
+    margin: 5px;
+}
+
+/*#previsions_du_jour {
+    float: left;
+    width: 422px;
+    height: 600px;
+    margin: 0 0 15px 0
+}
+
+#previsions_du_jour .item {
+    height: 150px;
+    position: relative
+}
+
+#previsions_du_jour .item .heure {
+    color: #fbf8ff;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em
+}
+
+#previsions_du_jour .item .temperature {
+    color: #FFF;
+    position: absolute;
+    top: 79px;
+    left: 31px;
+    font-size: 2.4em;
+    display: block;
+    text-align: center;
+    width: 65px
+}
+
+#previsions_du_jour .item .pluie, #previsions_du_jour .item .vent {
+    color: #fff9fc;
+    position: absolute;
+    left: 141px;
+    top: 82px;
+    font-size: .95em
+}
+
+#previsions_du_jour .item .vent {
+    left: 232px
+}
+
+#previsions_du_jour .item .temps {
+    color: #fff8f9;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    top: 32px;
+    left: 10px;
+    font-size: .9em;
+    width: 250px;
+    vertical-align: middle;
+    height: 35px;
+    line-height: 30px
+}
+
+#previsions_du_jour .item .temps span {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: normal
+}
+
+#previsions_du_jour .item .humidite, #previsions_du_jour .item .pression, #previsions_du_jour .item .visibilite {
+    font-size: .9em;
+    color: #FFF;
+    position: absolute;
+    top: 125px;
+    left: 10px;
+}
+
+#previsions_du_jour .item .pression {
+    left: 125px
+}
+
+#previsions_du_jour .item .visibilite {
+    left: 265px
+}
+
+#previsions_du_jour .item .humidite span, #previsions_du_jour .item .pression span, #previsions_du_jour .item .visibilite span {
+    color: #f7f6ff
+}
+
+#previsions_du_jour .item .icone-meteo.grand {
+    position: absolute;
+    top: 20px;
+    right: 23px
+}
+
+.big {
+    font-size: 4.6em;
+    margin: 15px;
+}
+*/
+/*
 .weather {
     padding: 2em;
     margin: 2em;
@@ -35,18 +260,4 @@
     flex: 3 0;
     order: 2;
 }
-
-.big {
-    font-size: 4.6em;
-    margin: 15px;
-}
-
-.med {
-    font-size: 2em;
-    margin: 10px;
-}
-
-.sma {
-    font-size: 1em;
-    margin: 5px;
-}
+*/

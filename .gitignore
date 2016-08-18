@@ -2,4 +2,3 @@
 .idea/
 front/node_modules
 front/typings
-back/**/__pycache__
