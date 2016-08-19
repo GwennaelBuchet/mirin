@@ -3,7 +3,7 @@ package weather
 import (
 	"encoding/json"
 
-	owm "github.com/briandowns/openweathermap"
+	owm "github.com/gwennaelbuchet/openweathermap"
 	"log"
 	"net/http"
 )
@@ -53,25 +53,49 @@ func getCurrent(l *LocationData, u, lang string) *owm.CurrentWeatherData {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//w.CurrentByName(l) // Get the actual data for the given location
-	w.CurrentByCoordinates(
-		&owm.Coordinates{
-			Longitude: l.Lon,
-			Latitude: l.Lat,
-		},
-	)
+	w.CurrentByName(l.City) // Get the actual data for the given location
 
 	return w
 }
 
-// hereHandler will take are of requests coming in for the "/here" route.
-func HereHandler(w http.ResponseWriter, r *http.Request) {
+
+func getForecast(l *LocationData, u, lang string) *owm.ForecastWeatherData {
+	w, err := owm.NewForecast(u, lang) // Create the instance with the given unit
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	w.ForecastByName(l.City, 8)
+
+	return w
+}
+
+
+// GetCurrentWeatherHandler take care of request for current weather data
+func GetCurrentWeatherHandler(w http.ResponseWriter, r *http.Request) {
 
 	location, err := getLocation()
 	if err != nil {
 		log.Fatal(err)
 	}
 	wd := getCurrent(location, "C", "FR")
+
+	j, err := json.Marshal(wd)
+	if err == nil {
+		w.Write([]byte(j));
+	}
+
+}
+
+
+// GetForecastWeatherHandler take care of request for this current day weather data
+func GetForecastWeatherHandler(w http.ResponseWriter, r *http.Request) {
+
+	location, err := getLocation()
+	if err != nil {
+		log.Fatal(err)
+	}
+	wd := getForecast(location, "C", "FR")
 
 	j, err := json.Marshal(wd)
 	if err == nil {
