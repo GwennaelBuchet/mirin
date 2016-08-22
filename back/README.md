@@ -2,6 +2,7 @@
 ```go
 go get github.com/briandowns/openweathermap
 go get github.com/rs/cors
+go get -u github.com/gorilla/mux
 ```
 
 ```shell

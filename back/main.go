@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"mirin/weather"
 	"github.com/rs/cors"
+	"github.com/gorilla/mux"
 )
 
 func main() {
@@ -14,10 +15,11 @@ func main() {
 		AllowCredentials: true,
 	})
 
-	mux := http.NewServeMux()
-	mux.HandleFunc("/api/v1/weather/current", weather.GetCurrentWeatherHandler)
-	mux.HandleFunc("/api/v1/weather/forecast", weather.GetForecastWeatherHandler)
+	//mux := http.NewServeMux()
+	r := mux.NewRouter()
+	r.HandleFunc("/api/v1/weather/current", weather.GetCurrentWeatherHandler)
+	r.HandleFunc("/api/v1/weather/forecast/{nbForecast:[1-9]+}", weather.GetForecastWeatherHandler)
 
-	handler := c.Handler(mux)
+	handler := c.Handler(r)
 	http.ListenAndServe(":8090", handler)
 }
