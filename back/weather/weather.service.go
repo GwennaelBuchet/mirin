@@ -2,10 +2,11 @@ package weather
 
 import (
 	"encoding/json"
-
 	owm "github.com/gwennaelbuchet/openweathermap"
 	"log"
 	"net/http"
+	"github.com/gorilla/mux"
+	"strconv"
 )
 
 // URL is a constant that contains where to find the IP locale info
@@ -46,47 +47,17 @@ func getLocation() (*LocationData, error) {
 	return r, nil
 }
 
-// getCurrent gets the current weather for the provided location in
-// the units provided.
-func getCurrent(l *LocationData, u, lang string) *owm.CurrentWeatherData {
-	w, err := owm.NewCurrent(u, lang) // Create the instance with the given unit
+
+func getForecast(l *LocationData, u string, lang string, nbForecast int) *owm.HourlyForecastData {
+	w, err := owm.NewHourlyForecast(u, lang) // Create the instance with the given unit
 	if err != nil {
 		log.Fatal(err)
 	}
-	w.CurrentByName(l.City) // Get the actual data for the given location
+
+	w.HourlyForecastByName(l.City, nbForecast)
 
 	return w
 }
-
-
-func getForecast(l *LocationData, u, lang string) *owm.ForecastWeatherData {
-	w, err := owm.NewForecast(u, lang) // Create the instance with the given unit
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	w.ForecastByName(l.City, 8)
-
-	return w
-}
-
-
-// GetCurrentWeatherHandler take care of request for current weather data
-func GetCurrentWeatherHandler(w http.ResponseWriter, r *http.Request) {
-
-	location, err := getLocation()
-	if err != nil {
-		log.Fatal(err)
-	}
-	wd := getCurrent(location, "C", "FR")
-
-	j, err := json.Marshal(wd)
-	if err == nil {
-		w.Write([]byte(j));
-	}
-
-}
-
 
 // GetForecastWeatherHandler take care of request for this current day weather data
 func GetForecastWeatherHandler(w http.ResponseWriter, r *http.Request) {
@@ -95,11 +66,15 @@ func GetForecastWeatherHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	wd := getForecast(location, "C", "FR")
+
+	vars := mux.Vars(r)
+	f := vars["nbForecast"]
+	nbForecast, _ := strconv.Atoi(f)
+
+	wd := getForecast(location, "C", "FR", nbForecast)
 
 	j, err := json.Marshal(wd)
 	if err == nil {
 		w.Write([]byte(j));
 	}
-
 }
