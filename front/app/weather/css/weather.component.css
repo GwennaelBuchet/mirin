@@ -87,7 +87,7 @@ strong {
 }
 
 .widgetBoxGrandTwodays {
-    width: 360px;
+    /*width: 360px; */
     height: 200px;
 }
 
@@ -95,7 +95,7 @@ strong {
     position: absolute;
     z-index: 2;
     background: transparent url("app/weather/img/grand-2days-overlay.png") no-repeat 0 0;
-    width: 360px;
+   /* width: 360px;*/
     height: 200px;
 }
 

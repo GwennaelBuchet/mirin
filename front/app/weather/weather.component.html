@@ -1,33 +1,22 @@
-
 <br/>
 <br/>
 <br/>
 
 <div class="widgetBox widgetBoxGrand widgetBoxGrandTwodays">
     <div class="widgetContent">
-        <div class="day1">
+        <div class="day1" *ngFor="let f of forecast.list; let i=index">
             <div class="text">
-                <div class="day">Aujourd'hui,<br />Jeudi 18 Août</div>
-                <div class="temperatures">{{ weather.main.temp | number:'.0-0' }}°</div>
-                <div class="description">{{ desc }}</div>
-                <div class="moreDescription">Humidité : <strong>{{weather.main.humidity}}%</strong><br />
-                    Vent : <strong>{{weather.wind.speed}} km/h Nord Ouest</strong><br />
+                <div class="day">{{timestampToHuman(f.dt)}}<br/>{{ timestampToHuman(f.dt) }}</div>
+                <div class="temperatures">{{ f.main.temp | number:'.0-0' }}°</div>
+                <div class="description">{{ f.weather[0].description }}</div>
+                <div class="moreDescription">Humidité : <strong>{{f.main.humidity}}%</strong><br/>
+                    Vent : <strong>{{f.wind.speed}} km/h direction {{f.wind.deg}}</strong><br/>
                     Rafales : <strong>35 km/h</strong>
                 </div>
             </div>
-            <div class="pictoSize3"><div class="wi wi-owm-{{ icon }} big"></div></div>
-        </div>
-        <div class="day2">
-            <div class="text">
-                <div class="day">Vendredi</div>
-                <div class="temperatures">22°</div>
-                <div class="description">Pluie</div>
-                <div class="moreDescription">Humidité : <strong>90%</strong><br />
-                    Vent: <strong>16 km/h</strong><br />
-                    <strong>Sud Sud Ouest</strong>
-                </div>
+            <div class="pictoSize3">
+                <div class="wi wi-owm-{{ f.weather[0].id }} big"></div>
             </div>
-            <div class="pictoSize1"><div class="pict6"></div></div>
         </div>
     </div>
     <div class="overlay"></div>
