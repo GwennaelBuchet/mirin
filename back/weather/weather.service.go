@@ -2,10 +2,10 @@ package weather
 
 import (
 	"encoding/json"
+	"github.com/gorilla/mux"
 	owm "github.com/gwennaelbuchet/openweathermap"
 	"log"
 	"net/http"
-	"github.com/gorilla/mux"
 	"strconv"
 )
 
@@ -47,7 +47,6 @@ func getLocation() (*LocationData, error) {
 	return r, nil
 }
 
-
 func getForecast(l *LocationData, u string, lang string, nbForecast int) *owm.HourlyForecastData {
 	w, err := owm.NewHourlyForecast(u, lang) // Create the instance with the given unit
 	if err != nil {
@@ -75,6 +74,6 @@ func GetForecastWeatherHandler(w http.ResponseWriter, r *http.Request) {
 
 	j, err := json.Marshal(wd)
 	if err == nil {
-		w.Write([]byte(j));
+		w.Write([]byte(j))
 	}
 }
