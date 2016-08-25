@@ -27,7 +27,7 @@ strong {
 .widgetBoxGrand .temperatures {
     font-size: 44px;
     line-height: 40px;
-    letter-spacing: -0.1em;
+    letter-spacing: 0.02em;
     font-weight: normal;
 }
 
@@ -38,20 +38,24 @@ strong {
     text-align: right;
 }
 
-.widgetBoxGrand .day1, .widgetBoxGrand .day2 {
+.widgetBoxGrand .forecast, .widgetBoxGrand .day2 {
     position: relative;
     float: left;
     width: 104px;
     height: 184px;
-    padding: 8px;
+    padding: 8px 20px;
     text-align: left;
 }
 
 .widgetBoxGrand .description {
-    font-size: 16px;
     line-height: 15px;
     font-weight: bold;
-    margin: 0 0 4px;
+    margin: 0 0 15px;
+}
+
+.wind {
+    margin: -20px 0 20px;
+    font-size: 2em;
 }
 
 .widgetBoxGrand .pictoSize1 {
@@ -64,11 +68,6 @@ strong {
     left: 72px;
 }
 
-.pictoSize1 div {
-    width: 80px;
-    height: 52px;
-}
-
 .pictoSize3 {
     position: absolute;
     z-index: 5;
@@ -76,45 +75,36 @@ strong {
     left: 0;
 }
 
-/*.pictoSize3 .pict3 {
-    background: url("http://widget.meteocity.com/templates/images/icons4/size3/picto-3.png") no-repeat 0 0;
-}*/
-
 .pictoSize3 div {
     width: 160px;
     height: 90px;
     text-align: center;
+    margin-left: 0.3em;
+    margin-top: 0.1em;
 }
 
 .widgetBoxGrandTwodays {
-    /*width: 360px; */
-    height: 200px;
+    /*width: 360px;*/
+    height: 230px;
 }
 
-.widgetBoxGrandTwodays .overlay {
-    position: absolute;
-    z-index: 2;
-    background: transparent url("app/weather/img/grand-2days-overlay.png") no-repeat 0 0;
-   /* width: 360px;*/
-    height: 200px;
-}
-
-.widgetBoxGrandTwodays .day1 {
+.widgetBoxGrandTwodays .forecast {
     float: left;
     width: 224px;
+    border-right: solid 1px #bcbcbc;
 }
 
-.widgetBoxGrandTwodays .day1 .temperatures {
-    font-size: 60px;
-    line-height: 50px;
+.widgetBoxGrandTwodays .forecast .temperatures {
+    font-size: 5.5em;
+    line-height: 90px;
 }
 
-.widgetBoxGrandTwodays .day1 .day {
-    margin: 0 0 40px;
+.widgetBoxGrandTwodays .forecast .day {
+    margin: 0 0 20px;
 }
 
 .big {
-    font-size: 9em;
+    font-size: 7em;
 }
 
 .med {
@@ -124,7 +114,6 @@ strong {
 
 .sma {
     font-size: 1em;
-    margin: 5px;
 }
 
 /*#previsions_du_jour {

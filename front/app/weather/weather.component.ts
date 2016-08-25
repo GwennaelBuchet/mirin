@@ -13,6 +13,8 @@ import {WeatherService} from "./weather.service";
 })
 export class WeatherComponent implements OnInit {
 
+    days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+
     forecast = {
         cod: "200",
         message: 0.0289,
@@ -65,11 +67,6 @@ export class WeatherComponent implements OnInit {
         Key: "bf14e32fe69a119b541b93d99c16cf75"
 
     };
-    desc = '';
-    icon = '';
-    sunrise = '';
-    sunset = '';
-
 
     constructor(private weatherService: WeatherService, private route: ActivatedRoute) {
     }
@@ -82,32 +79,35 @@ export class WeatherComponent implements OnInit {
         //noinspection TypeScriptUnresolvedFunction
         this.weatherService.getCurrent().then(f => {
             this.forecast = f;
-            /*this.desc = this.weather.weather[0].description;
-             this.icon = this.weather.weather[0].id.toString();
-
-             var date = new Date(this.weather.sys.sunrise * 1000);
-             var hours =  "0" + date.getHours();
-             var minutes = "0" + date.getMinutes();
-             this.sunrise = hours + 'h' + minutes.substr(-2);
-
-             date = new Date(this.weather.sys.sunset * 1000);
-             hours =  "" + date.getHours();
-             minutes = "0" + date.getMinutes();
-             this.sunset = hours + 'h' + minutes.substr(-2);*/
         });
     }
 
-    timestampToHuman(t) {
-        let date = new Date(t * 1000),
-            d = [
-                date.getFullYear(),
-                date.getMonth() + 1,
-                date.getDate(),
-                date.getHours(),
-                date.getMinutes(),
-                date.getSeconds(),
-            ];
+    getDay(timestamp) {
+        let date = new Date(timestamp * 1000);
+        return this.days[date.getDay()];
+    }
 
-        return d[3] + "h" + d[4];
+    getDate(timestamp) {
+        let date = new Date(timestamp * 1000);
+        return date.getDate();
+    }
+
+    getWindIcon(deg) {
+        return Math.round(deg) % 360;
+    }
+
+    timestampToHuman(t) {
+        let date = new Date(t * 1000)
+
+        let h = this._to2Digits(date.getHours());
+        let m = this._to2Digits(date.getMinutes());
+
+        return h + ":" + m;
+
+        //return date.toLocaleTimeString();
+    }
+
+    _to2Digits(s) {
+        return s < 10 ? "0" + s : s;
     }
 }
