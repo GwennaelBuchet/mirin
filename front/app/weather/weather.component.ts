@@ -13,6 +13,8 @@ import {WeatherService} from "./weather.service";
 })
 export class WeatherComponent implements OnInit {
 
+    nbForecast = 5;
+
     days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
     forecast = {
@@ -77,7 +79,7 @@ export class WeatherComponent implements OnInit {
 
     getCurrent() {
         //noinspection TypeScriptUnresolvedFunction
-        this.weatherService.getCurrent().then(f => {
+        this.weatherService.getCurrent(this.nbForecast).then(f => {
             this.forecast = f;
         });
     }

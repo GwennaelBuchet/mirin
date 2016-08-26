@@ -10,14 +10,14 @@ import "rxjs/add/operator/toPromise";
 @Injectable()
 export class WeatherService {
 
-    private weatherURL = 'http://localhost:8090/api/v1/weather/forecast/4';
+    private weatherURL = 'http://localhost:8090/api/v1/weather/forecast/';
     private Promise;
 
     constructor(private http: Http) {
     }
 
-    getCurrent(city: string = 'lille', countryCode: string = 'fr') {
-        return this.http.get(this.weatherURL)
+    getCurrent(nbForecast: number, city: string = 'lille', countryCode: string = 'fr') {
+        return this.http.get(this.weatherURL + nbForecast)
             .toPromise()
             .then(
                 response => response.json()
