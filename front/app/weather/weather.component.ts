@@ -8,8 +8,8 @@ import {WeatherService} from "./weather.service";
 
 @Component({
     selector: 'weather',
-    templateUrl: 'app/weather/weather.component.html',
-    styleUrls: ['app/weather/css/weather.component.css', 'app/weather/css/weather-icons-wind.min.css', 'app/weather/css/weather-icons.min.css']
+    templateUrl: 'app/weather/v2/weather.component.html',
+    styleUrls: ['app/weather/v2/css/weather.component.css', 'app/weather/v1/css/weather-icons-wind.min.css', 'app/weather/v1/css/weather-icons.min.css']
 })
 export class WeatherComponent implements OnInit {
 

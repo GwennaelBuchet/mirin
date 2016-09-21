@@ -11,6 +11,8 @@ import {routing} from "./app.routing";
 
 import {WeatherComponent} from "./weather/weather.component";
 import {WeatherService} from "./weather/weather.service";
+import {AgendaComponent} from "./agenda/agenda.component";
+import {AgendaService} from "./agenda/agenda.service";
 
 @NgModule({
 	          imports: [
@@ -20,10 +22,12 @@ import {WeatherService} from "./weather/weather.service";
 	          ],
 	          declarations: [
 		          AppComponent,
-		          WeatherComponent
+		          WeatherComponent,
+		          AgendaComponent
 	          ],
 	          providers: [
-		          WeatherService
+		          WeatherService,
+		          AgendaService
 	          ],
 	          bootstrap: [
 		          AppComponent

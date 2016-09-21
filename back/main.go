@@ -3,17 +3,18 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	"net/http"
+	"mirin/weather"
 	"mirin/agenda"
 	"mirin/auth"
-	"mirin/weather"
-	"net/http"
 )
 
 func main() {
 
 	c := cors.New(cors.Options{
+		//AllowedOrigins:   []string{"*"},
 		AllowedOrigins:   []string{"http://localhost:*"},
-		AllowedMethods:   []string{"GET", "POST", "DELETE"},
+		AllowedMethods:   []string{"GET", "POST", "DELETE", "OPTION", "PUT"},
 		AllowCredentials: true,
 	})
 

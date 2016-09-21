@@ -1,0 +1,119 @@
+
+strong {
+    font-weight: bold;
+}
+
+.widgetBox {
+    background-color: #000;
+    padding: 10px;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    color: #FFF;
+    font-size: 12px;
+    line-height: 13px;
+    position: relative;
+    border: 1px solid #bcbcbc;
+}
+
+.widgetBox .text {
+    position: relative;
+    z-index: 9;
+}
+
+.widgetContent {
+    position: absolute;
+    z-index: 9;
+}
+
+.weatheritem {
+    border-right: solid 1px #bcbcbc;
+}
+
+.widgetBoxGrand .temperatures {
+    font-size: 44px;
+    line-height: 40px;
+    letter-spacing: 0.02em;
+    font-weight: normal;
+}
+
+.widgetBoxGrand .day {
+    font-size: 2em;
+    line-height: 1.1em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.widgetBoxGrand .forecast, .widgetBoxGrand .day2 {
+    position: relative;
+    float: left;
+    width: 104px;
+    height: 184px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.widgetBoxGrand .description {
+    line-height: 1.1em;
+    font-weight: bold;
+    margin: 0 0 15px;
+}
+
+.wind {
+    margin: -20px 0 20px;
+    font-size: 2em;
+}
+
+.widgetBoxGrand .pictoSize1 {
+    top: 28px;
+    left: 20px;
+}
+
+.widgetBoxGrand .pictoSize3 {
+    top: 36px;
+    left: 72px;
+}
+
+.pictoSize3 {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+
+.pictoSize3 div {
+    width: 160px;
+    height: 90px;
+    text-align: center;
+    margin-left: 0.3em;
+    margin-top: 0.1em;
+}
+
+.widgetBoxGrandTwodays {
+    /*width: 360px;*/
+    height: 270px;
+}
+
+.widgetBoxGrandTwodays .forecast {
+    float: left;
+    width: 224px;
+    height:270px;
+    border-right: solid 1px whitesmoke;
+}
+
+.widgetBoxGrandTwodays .forecast .temperatures {
+    font-size: 5.5em;
+    line-height: 90px;
+}
+
+
+.big {
+    font-size: 7em;
+}
+
+.med {
+    font-size: 2em;
+    margin: 10px;
+}
+
+.sma {
+    font-size: 1em;
+}

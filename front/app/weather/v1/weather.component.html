@@ -1,0 +1,33 @@
+<br/>
+<h1>{{ forecast.city.name }}</h1>
+
+<div class="widgetBox widgetBoxGrand widgetBoxGrandTwodays">
+    <div class="widgetContent">
+        <div class="forecast" *ngFor="let f of forecast.list; let i=index">
+            <div *ngIf="i<nbForecast">
+                <div class="text">
+                    <div class="day">{{ getDay(f.dt) + " " + getDate(f.dt) }}<br/>{{ timestampToHuman(f.dt) }}</div>
+                    <div class="temperatures">{{ f.main.temp | number:'.0-0' }}°</div>
+                    <div class="description med">
+                        {{ f.weather[0].description }}
+                    </div>
+                    <div class="med">
+                        <span class="wi wi-humidity"></span>
+                        <strong>{{f.main.humidity}}%</strong>
+                    </div>
+
+                    <div class="med">
+                        <span class="wi wi-strong-wind"></span>
+                        <strong>{{ (f.wind.speed * 3.6) | number:'.1-1' }} km/h</strong>
+                        <span class="wind wi wi-wind towards-{{ getWindIcon(f.wind.deg) }}-deg"></span>
+                    </div>
+                </div>
+
+                <div class="pictoSize3" *ngIf="i<nbForecast">
+                    <div class="wi wi-owm-{{ f.weather[0].id }} big"></div>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>

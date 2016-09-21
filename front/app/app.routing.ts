@@ -4,6 +4,7 @@
 
 import {Routes, RouterModule} from "@angular/router";
 import {WeatherComponent} from "./weather/weather.component";
+import {AgendaComponent} from "./agenda/agenda.component";
 
 const appRoutes: Routes = [
 	{
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
 	{
 		path: 'weather',
 		component: WeatherComponent
+	},
+	{
+		path: 'agenda',
+		component: AgendaComponent
 	}
 ];
 
